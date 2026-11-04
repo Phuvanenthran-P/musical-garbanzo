@@ -140,3 +140,10 @@ html,body{height:100%;overflow:hidden}
 .player{width:min(56rem,100%,calc(52vh * 16 / 9))}
 @media(max-width:600px){.cards{grid-template-columns:repeat(2,1fr);gap:.7rem}.card{padding:1.1rem .6rem}}
 @media(max-height:720px){.screen{gap:.8rem}.cake{transform:scale(.75);margin:-1.2rem 0}}
+
+/* ===== Full screen ===== */
+#fsBtn{position:fixed;top:max(1rem,env(safe-area-inset-top));left:1rem;z-index:60;background:rgba(0,0,0,.5);border:1px solid var(--gold);color:var(--gold-hi);border-radius:99px;padding:.3rem .9rem;font:300 .85rem var(--sans);cursor:pointer}
+#fsBtn[hidden]{display:none}
+.player{width:min(100%,calc(62vh * 16 / 9))}
+#video{padding:1rem}
+#video h2{font-size:clamp(1.4rem,4vw,2.4rem)}
