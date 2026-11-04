@@ -1,7 +1,7 @@
 /* ============ EDIT ME: personalization ============ */
 const CONFIG = {
   friendName: "Asif",
-  myName: "Your Best Friend",          // shown as the sign-off on the last screen
+  myName: "Me",          // shown as the sign-off on the last screen
   videoPath: "assets/birthday-song.mp4",
   game: { goal: 10 }                   // gifts he must catch to unlock the surprise
 };
