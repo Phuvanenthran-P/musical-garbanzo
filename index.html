@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A Little Surprise For You</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+<canvas id="fx" aria-hidden="true"></canvas>
+<div id="stars" aria-hidden="true"></div>
+<nav id="dots" aria-label="Sections" hidden></nav>
+<div id="glow"></div><div id="bar"></div><div id="dim"></div>
+<div class="curtain l"></div><div class="curtain r"></div>
+
+<section id="intro" class="screen">
+  <p class="kicker">A little surprise for you</p>
+  <h1>Hey, <span data-friend>Birthday Boy</span>!</h1>
+  <p class="sub">Someone has prepared something special for you... but you have to earn it first.</p>
+  <button class="btn" id="playBtn">Play to Unlock</button>
+  <button class="btn" id="openBtn" hidden>Open Your Surprise</button>
+</section>
+<section id="cake" class="screen" data-title="Cake">
+  <h2>Make a Wish</h2>
+  <p class="sub">Close your eyes, make a wish and blow out the candles!</p>
+  <div class="cake" id="cakeBox" aria-hidden="true">
+    <div class="candles"><i><b></b></i><i><b></b></i><i><b></b></i></div>
+    <div class="tier t1"></div><div class="tier t2"></div><div class="plate"></div>
+  </div>
+  <button class="btn" id="blowBtn">Blow Out Candles</button>
+  <p class="dream" id="dream" role="status">May all your dreams come true!</p>
+</section>
+<section id="video" class="screen" data-title="Video">
+  <h2>A Little Something Just For You</h2>
+  <p class="sub">This one is specially dedicated to you. Sit back, relax and enjoy!</p>
+  <div class="player">
+    <video id="song" controls playsinline preload="metadata"></video>
+    <p class="vid-error" id="vidError" hidden>Oops! The birthday video could not be loaded. Make sure the file is saved as <code>assets/birthday-song.mp4</code>.</p>
+  </div>
+  <button class="btn next" id="vidSkip" data-next hidden>Continue</button>
+</section>
+<section id="finale" class="screen" data-title="End">
+  <h2 class="mega gold">Happy Birthday, <span data-friend>Asif</span>!</h2>
+  <p class="sub">May your life be filled with happiness, success and countless reasons to smile.</p>
+  <p class="lead gold">With love, <span data-me></span></p>
+</section>
+<div id="game" hidden>
+  <canvas id="gc"></canvas>
+  <div class="hud"><span id="score">0 / 10</span><div class="track"><i id="fill"></i></div></div>
+  <p id="gmsg" role="status"></p>
+  <p class="hint">Slide to move the plate. Catch the gifts, dodge the burnt toast.</p>
+  <button id="skip" hidden>Skip the game</button>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
