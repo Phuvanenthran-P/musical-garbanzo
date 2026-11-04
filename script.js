@@ -276,6 +276,7 @@ window.IntersectionObserver = class { observe() {} unobserve() {} disconnect() {
     if (!el[id] || cur === id) return;
     if (cur) { leave(cur); el[cur].classList.remove("active", "live"); }
     cur = id; el[id].classList.add("active", "live");
+    body.classList.toggle("ended", id === "finale");
     body.style.setProperty("--p", order.indexOf(id) / (order.length - 1));
     enter(id);
   }
@@ -290,6 +291,15 @@ window.IntersectionObserver = class { observe() {} unobserve() {} disconnect() {
   ["fullscreenchange", "webkitfullscreenchange"].forEach(ev => document.addEventListener(ev, sync));
   fsBtn.addEventListener("click", goFs);
   $("#playBtn").addEventListener("click", () => { if (canFs && !isFs()) goFs(); });
+  // Exit button on the end card: leave full screen, then go back (Android Chrome can't close a tab by script)
+  $("#exitBtn").addEventListener("click", () => {
+    if (isFs()) try { (document.exitFullscreen || document.webkitExitFullscreen).call(document); } catch (e) {}
+    try { window.close(); } catch (e) {}
+    setTimeout(() => {
+      if (history.length > 1) history.back();
+      else { const b = $("#exitBtn"); b.textContent = "You can close this tab now"; b.disabled = true; }
+    }, 300);
+  });
   goTo("intro");
   const song = $("#song");
   song.addEventListener("ended", () => {   // video over -> the page ends on the final card
