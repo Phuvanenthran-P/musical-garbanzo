@@ -161,3 +161,7 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 .curtain.l,.curtain.r{box-shadow:none}
 @media(hover:none){#glow{display:none}}
 @media(max-width:700px){#stars i:nth-child(n+26){display:none}}
+
+/* ===== End card ===== */
+body.ended #fsBtn{display:none}
+#exitBtn{margin-top:1rem}
